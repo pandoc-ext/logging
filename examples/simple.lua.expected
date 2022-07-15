@@ -1,0 +1,230 @@
+(#) pandoc Pandoc {
+  blocks: Blocks {
+    [1] Header {
+      attr: Attr {
+        attributes: AttributeList {
+          a: "b"
+        }
+        classes: List {
+          [1] "new-page"
+        }
+        identifier: "header"
+      }
+      content: Inlines {
+        [1] Str text: "Header"
+      }
+      level: 1
+    }
+    [2] Para {
+      content: Inlines {
+        [1] Str text: "Paragraph"
+        [2] Space {}
+        [3] Str text: "with"
+        [4] Space {}
+        [5] Emph {
+          content: Inlines {
+            [1] Str text: "emphasized"
+          }
+        }
+        [6] Space {}
+        [7] Str text: "and"
+        [8] Space {}
+        [9] Strong {
+          content: Inlines {
+            [1] Str text: "bold"
+          }
+        }
+        [10] Space {}
+        [11] Str text: "text."
+      }
+    }
+    [3] CodeBlock {
+      attr: Attr {
+        attributes: AttributeList {}
+        classes: List {}
+        identifier: ""
+      }
+      text: "Code"
+    }
+    [4] BulletList {
+      content: List {
+        [1] Blocks {
+          [1] Plain {
+            content: Inlines {
+              [1] Str text: "and"
+              [2] Space {}
+              [3] Str text: "a"
+              [4] Space {}
+              [5] Str text: "list."
+            }
+          }
+        }
+      }
+    }
+    [5] Para {
+      content: Inlines {
+        [1] Str text: "text"
+      }
+    }
+    [6] Table {
+      attr: Attr {
+        attributes: AttributeList {}
+        classes: List {}
+        identifier: ""
+      }
+      bodies: List {
+        [1] {
+          attr: Attr {
+            attributes: AttributeList {}
+            classes: List {}
+            identifier: ""
+          }
+          body: List {
+            [1] pandoc.Row {
+              attr: Attr {
+                attributes: AttributeList {}
+                classes: List {}
+                identifier: ""
+              }
+              cells: List {
+                [1] pandoc.Cell {
+                  alignment: "AlignDefault"
+                  attr: Attr {
+                    attributes: AttributeList {}
+                    classes: List {}
+                    identifier: ""
+                  }
+                  col_span: 1
+                  contents: Blocks {
+                    [1] Plain {
+                      content: Inlines {
+                        [1] Str text: "Tom"
+                      }
+                    }
+                  }
+                  row_span: 1
+                }
+                [2] pandoc.Cell {
+                  alignment: "AlignDefault"
+                  attr: Attr {
+                    attributes: AttributeList {}
+                    classes: List {}
+                    identifier: ""
+                  }
+                  col_span: 1
+                  contents: Blocks {
+                    [1] Plain {
+                      content: Inlines {
+                        [1] Str text: "Black"
+                        [2] Space {}
+                        [3] Str text: "and"
+                        [4] Space {}
+                        [5] Str text: "white"
+                      }
+                    }
+                  }
+                  row_span: 1
+                }
+              }
+            }
+          }
+          head: List {}
+          row_head_columns: 0
+        }
+      }
+      caption: {
+        long: Blocks {
+          [1] Plain {
+            content: Inlines {
+              [1] Str text: "Cats"
+            }
+          }
+        }
+      }
+      colspecs: List {
+        [1] {
+          [1] "AlignDefault"
+        }
+        [2] {
+          [1] "AlignDefault"
+        }
+      }
+      foot: pandoc.TableFoot {
+        attr: Attr {
+          attributes: AttributeList {}
+          classes: List {}
+          identifier: ""
+        }
+        rows: List {}
+      }
+      head: pandoc.TableHead {
+        attr: Attr {
+          attributes: AttributeList {}
+          classes: List {}
+          identifier: ""
+        }
+        rows: List {
+          [1] pandoc.Row {
+            attr: Attr {
+              attributes: AttributeList {}
+              classes: List {}
+              identifier: ""
+            }
+            cells: List {
+              [1] pandoc.Cell {
+                alignment: "AlignDefault"
+                attr: Attr {
+                  attributes: AttributeList {}
+                  classes: List {}
+                  identifier: ""
+                }
+                col_span: 1
+                contents: Blocks {
+                  [1] Plain {
+                    content: Inlines {
+                      [1] Str text: "Name"
+                    }
+                  }
+                }
+                row_span: 1
+              }
+              [2] pandoc.Cell {
+                alignment: "AlignDefault"
+                attr: Attr {
+                  attributes: AttributeList {}
+                  classes: List {}
+                  identifier: ""
+                }
+                col_span: 1
+                contents: Blocks {
+                  [1] Plain {
+                    content: Inlines {
+                      [1] Str text: "Description"
+                    }
+                  }
+                }
+                row_span: 1
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  meta: Meta {
+    foo: Inlines {
+      [1] Emph {
+        content: Inlines {
+          [1] Str text: "emph"
+        }
+      }
+    }
+    goo: Inlines {
+      [1] Underline {
+        content: Inlines {
+          [1] Str text: "underline"
+        }
+      }
+    }
+  }
+}

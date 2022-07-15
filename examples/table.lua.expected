@@ -1,0 +1,35 @@
+(#) caption Cats
+(#) head.row[1].cell[1] pandoc.Cell {
+  alignment: "AlignDefault"
+  attr: Attr {
+    attributes: AttributeList {}
+    classes: List {}
+    identifier: ""
+  }
+  col_span: 1
+  contents: Blocks {
+    [1] Plain {
+      content: Inlines {
+        [1] Str text: "Name"
+      }
+    }
+  }
+  row_span: 1
+}
+(#) head.row[1].cell[2] pandoc.Cell {
+  alignment: "AlignDefault"
+  attr: Attr {
+    attributes: AttributeList {}
+    classes: List {}
+    identifier: ""
+  }
+  col_span: 1
+  contents: Blocks {
+    [1] Plain {
+      content: Inlines {
+        [1] Str text: "Description"
+      }
+    }
+  }
+  row_span: 1
+}
