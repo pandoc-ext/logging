@@ -104,14 +104,13 @@ local function dump_(prefix, value, maxlen, level, add)
             end
         end
         if numKeys == 0 then
-            -- this (for example) avoids a newline in 'Space {}'
-            -- XXX this wouldn't be needed with proper maxlen handling
-            value = '{}'
-        elseif numKeys == 1 and lastKey == 'text' and typename == 'Str' then
-            -- this allows strings to be formatted on a single line
+            -- this allows empty tables to be formatted on a single line
+            value = typename == 'Space' and '' or '{}'
+        elseif numKeys == 1 and lastKey == 'text' then
+            -- this allows text-only types to be formatted on a single line
+            typ = typename
+            value = value[lastKey]
             typename = 'string'
-            typ = 'Str text:'
-            value = value.text
         end
     end
 
@@ -122,6 +121,7 @@ local function dump_(prefix, value, maxlen, level, add)
     if valtyp == 'nil' then
         add('nil')
     elseif ({boolean=1, number=1, string=1})[valtyp] then
+        typsep = #typ > 0 and valtyp == 'string' and #value > 0 and ' ' or ''
         local fmt = typename == 'string' and '%q' or '%s'
         add(string.format('%s%s%s%s%s' .. fmt, indent, prefix, presep,
                           typ, typsep, value))
