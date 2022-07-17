@@ -1,0 +1,137 @@
+[INFO] Running filter para.lua
+(I) para Para {
+  content: Inlines {
+    [1] Str "This"
+    [2] Space
+    [3] Str "directory"
+    [4] Space
+    [5] Str "contains"
+    [6] Space
+    [7] Str "example"
+    [8] Space
+    [9] Str "lua"
+    [10] Space
+    [11] Str "files"
+    [12] Space
+    [13] Str "(standalone"
+    [14] Space
+    [15] Str "and"
+    [16] Space
+    [17] Str "pandoc"
+    [18] Space
+    [19] Str "filters)"
+    [20] Space
+    [21] Str "and"
+    [22] Space
+    [23] Str "some"
+    [24] Space
+    [25] Str "sample"
+    [26] Space
+    [27] Str "markdown"
+    [28] Space
+    [29] Str "files."
+  }
+}
+(I) para Para {
+  content: Inlines {
+    [1] Str "These"
+    [2] Space
+    [3] Str "files"
+    [4] Space
+    [5] Str "were"
+    [6] Space
+    [7] Str "used"
+    [8] Space
+    [9] Str "when"
+    [10] Space
+    [11] Str "generating"
+    [12] Space
+    [13] Str "the"
+    [14] Space
+    [15] Str "examples"
+    [16] Space
+    [17] Str "in"
+    [18] Space
+    [19] Str "the"
+    [20] Space
+    [21] Str "top-level"
+    [22] Space
+    [23] Str "README"
+    [24] Space
+    [25] Str "file."
+  }
+}
+(I) para Para {
+  content: Inlines {
+    [1] Str "There’s"
+    [2] Space
+    [3] Str "also"
+    [4] Space
+    [5] Str "a"
+    [6] Space
+    [7] Code {
+      attr: Attr {
+        attributes: AttributeList {}
+        classes: List {}
+        identifier: ""
+      }
+      text: "Makefile"
+    }
+    [8] Space
+    [9] Str "that"
+    [10] Space
+    [11] Str "runs"
+    [12] Space
+    [13] Str "lua"
+    [14] Space
+    [15] Str "and"
+    [16] Space
+    [17] Str "pandoc"
+    [18] Space
+    [19] Str "(as"
+    [20] Space
+    [21] Str "appropriate)"
+    [22] Space
+    [23] Str "and"
+    [24] Space
+    [25] Str "compares"
+    [26] Space
+    [27] Str "the"
+    [28] Space
+    [29] Str "output"
+    [30] Space
+    [31] Str "with"
+    [32] Space
+    [33] Str "the"
+    [34] Space
+    [35] Str "expected"
+    [36] Space
+    [37] Str "output."
+  }
+}
+(I) para Para {
+  content: Inlines {
+    [1] Str "Paragraph"
+    [2] Space
+    [3] Str "with"
+    [4] Space
+    [5] Emph {
+      content: Inlines {
+        [1] Str "emphasized"
+      }
+    }
+    [6] Space
+    [7] Str "and"
+    [8] Space
+    [9] Strong {
+      content: Inlines {
+        [1] Str "bold"
+      }
+    }
+    [10] Space
+    [11] Str "text."
+  }
+}
+(I) para Para {content: Inlines {[1] Str "text"}}
+(I) para Para {content: Inlines {[1] Str "smart-quote-’"}}
+[INFO] Completed filter para.lua in NN ms

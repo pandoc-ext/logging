@@ -27,7 +27,7 @@ text
   blocks: Blocks {
     [1] Para {
       content: Inlines {
-        [1] Str text: "text"
+        [1] Str "text"
       }
     }
   }
@@ -60,7 +60,7 @@ end
 ```text
 % pandoc simple.md -L para.lua >/dev/null --verbose
 [INFO] Running filter para.lua
-(I) para Para {, content: Inlines {[1] Str text: "text"}}
+(I) para Para {content: Inlines {[1] Str "text"}}
 [INFO] Completed filter para.lua in 8 ms
 ```
 
@@ -89,12 +89,14 @@ end
 ```text
 % pandoc simple.md -L para2.lua >/dev/null --verbose
 [INFO] Running filter para2.lua
-(I) para Para {, content: Inlines {[1] Str text: "text"}}
-(I) para.content Inlines {[1] Str text: "text"}
-(I) para.content[1] Str text: "text"
+(I) para Para {content: Inlines {[1] Str "text"}}
+(I) para.content Inlines {[1] Str "text"}
+(I) para.content[1] Str "text"
 (I) para.content[1].text text
 [INFO] Completed filter para2.lua in 8 ms
 ```
+
+Why is the last `text` not quoted?
 
 # Module contents
 
@@ -105,6 +107,12 @@ Returns whatever [`pandoc.utils.type()`](https://pandoc.org/lua-filters.html#pan
 * Spaces are replaced with periods, e.g., `pandoc Row` becomes `pandoc.Row`
 * `Inline` and `Block` are replaced with the corresponding `tag` value, e.g. `Emph` or `Table`
 
+## logging.spairs(list [, comp])
+
+Like `pairs()` but with sorted keys. Keys are converted to strings and sorted
+using `table.sort(keys, comp)` so by default they're visited in alphabetical
+order.
+
 ## logging.dump(value [, maxlen])
 
 Returns a pandoc-aware string representation of `value`, which can be an arbitrary lua object.
@@ -113,15 +121,16 @@ The returned string is a single line if not longer than `maxlen` (default `70`),
 
 Map keys are sorted alphabetically in order to ensure that output is repeatable.
 
-
-
-See the *Getting started* section for examples, and note that 
+See the *Getting started* section for examples.
 
 ## logging.output(...)
 
 Pass each argument to `logging.dump()` and output the results to `stderr`, separated by single spaces and terminated (if necessary) with a newline.
 
-Note: Actually (as a slight optimization) only `table` and `userdata` arguments are passed to `logging.dump()`. Other arguments are passed to the built-in `tostring()` function.
+Note: Only `table` and `userdata` arguments are passed to
+`logging.dump()`. Other arguments are passed to the built-in `tostring()`
+function. This is partly an optimization and partly to prevent string arguments
+from being quoted.
 
 ## logging.loglevel
 

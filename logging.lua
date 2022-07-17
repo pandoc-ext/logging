@@ -58,20 +58,16 @@ logging.type = function(value)
 end
 
 -- derived from https://www.lua.org/pil/19.3.html pairsByKeys()
-local function spairs(t, f)
-    local a = {}
-    for n in pairs(t) do
-        table.insert(a, tostring(n))
+logging.spairs = function(list, comp)
+    local keys = {}
+    for key, _ in pairs(list) do
+        table.insert(keys, tostring(key))
     end
-    table.sort(a, f)
+    table.sort(keys, comp)
     local i = 0
     local iter = function()
         i = i + 1
-        if a[i] == nil then
-            return nil
-        else
-            return a[i], t[a[i]]
-        end
+        return keys[i] and keys[i], list[keys[i]] or nil
     end
     return iter
 end
@@ -95,10 +91,11 @@ local function dump_(prefix, value, maxlen, level, add)
 
     -- modify the value heuristically
     if ({table=1, userdata=1})[type(value)] then
-        local numKeys, lastKey = 0, nil
+        local valueCopy, numKeys, lastKey = {}, 0, nil
         for key, val in pairs(value) do
             -- pandoc >= 2.15 includes 'tag', nil values and functions
             if key ~= 'tag' and val and type(val) ~= 'function' then
+                valueCopy[key] = val
                 numKeys = numKeys + 1
                 lastKey = key
             end
@@ -111,6 +108,8 @@ local function dump_(prefix, value, maxlen, level, add)
             typ = typename
             value = value[lastKey]
             typename = 'string'
+        else
+            value = valueCopy
         end
     end
 
@@ -122,25 +121,27 @@ local function dump_(prefix, value, maxlen, level, add)
         add('nil')
     elseif ({boolean=1, number=1, string=1})[valtyp] then
         typsep = #typ > 0 and valtyp == 'string' and #value > 0 and ' ' or ''
-        local fmt = typename == 'string' and '%q' or '%s'
-        add(string.format('%s%s%s%s%s' .. fmt, indent, prefix, presep,
-                          typ, typsep, value))
+        -- don't use the %q format specifier; doesn't work with multi-bytes
+        local quo = typename == 'string' and '"' or ''
+        add(string.format('%s%s%s%s%s%s%s%s', indent, prefix, presep, typ,
+                          typsep, quo, value, quo))
     elseif ({table=1, userdata=1})[valtyp] then
         add(string.format('%s%s%s%s%s{', indent, prefix, presep, typ, typsep))
         -- Attr and Attr.attributes have both numeric and string keys, so
         -- ignore the numeric ones
         -- XXX this is no longer the case for pandoc >= 2.15, so could remove
         --     the special case?
+        local first = true
         if prefix ~= 'attributes:' and typ ~= 'Attr' then
             for i, val in ipairs(value) do
-                local pre = maxlen and i > 1 and ', ' or ''
+                local pre = maxlen and not first and ', ' or ''
                 local text = dump_(string.format('%s[%s]', pre, i), val,
                                    maxlen, level + 1, add)
+                first = false
             end
         end
-        local first = true
         -- report keys in alphabetical order to ensure repeatability
-        for key, val in spairs(value) do
+        for key, val in logging.spairs(value) do
             -- pandoc >= 2.15 includes 'tag'
             if not tonumber(key) and key ~= 'tag' then
                 local pre = maxlen and not first and ', ' or ''

@@ -2,6 +2,7 @@ nil
 1
 false
 "string"
+"Here’s a non-ASCII character."
 {}
 {[1] 1, [2] 2, [3] 3}
 {a: 1, b: 2, c: 3}

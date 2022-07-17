@@ -81,7 +81,7 @@
     }
     [4] Para {
       content: Inlines {
-        [1] Str "There�\128\153s"
+        [1] Str "There’s"
         [2] Space
         [3] Str "also"
         [4] Space
@@ -335,6 +335,11 @@
             }
           }
         }
+      }
+    }
+    [11] Para {
+      content: Inlines {
+        [1] Str "smart-quote-’"
       }
     }
   }
