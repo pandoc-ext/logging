@@ -10,7 +10,7 @@
   contents: Blocks {
     [1] Plain {
       content: Inlines {
-        [1] Str text: "Name"
+        [1] Str "Name"
       }
     }
   }
@@ -27,7 +27,7 @@
   contents: Blocks {
     [1] Plain {
       content: Inlines {
-        [1] Str text: "Description"
+        [1] Str "Description"
       }
     }
   }

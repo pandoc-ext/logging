@@ -2,6 +2,133 @@
   blocks: Blocks {
     [1] Header {
       attr: Attr {
+        attributes: AttributeList {}
+        classes: List {}
+        identifier: "pandoc-lua-logging-examples"
+      }
+      content: Inlines {
+        [1] Str "Pandoc"
+        [2] Space
+        [3] Str "lua"
+        [4] Space
+        [5] Str "logging"
+        [6] Space
+        [7] Str "examples"
+      }
+      level: 1
+    }
+    [2] Para {
+      content: Inlines {
+        [1] Str "This"
+        [2] Space
+        [3] Str "directory"
+        [4] Space
+        [5] Str "contains"
+        [6] Space
+        [7] Str "example"
+        [8] Space
+        [9] Str "lua"
+        [10] Space
+        [11] Str "files"
+        [12] Space
+        [13] Str "(standalone"
+        [14] Space
+        [15] Str "and"
+        [16] Space
+        [17] Str "pandoc"
+        [18] Space
+        [19] Str "filters)"
+        [20] Space
+        [21] Str "and"
+        [22] Space
+        [23] Str "some"
+        [24] Space
+        [25] Str "sample"
+        [26] Space
+        [27] Str "markdown"
+        [28] Space
+        [29] Str "files."
+      }
+    }
+    [3] Para {
+      content: Inlines {
+        [1] Str "These"
+        [2] Space
+        [3] Str "files"
+        [4] Space
+        [5] Str "were"
+        [6] Space
+        [7] Str "used"
+        [8] Space
+        [9] Str "when"
+        [10] Space
+        [11] Str "generating"
+        [12] Space
+        [13] Str "the"
+        [14] Space
+        [15] Str "examples"
+        [16] Space
+        [17] Str "in"
+        [18] Space
+        [19] Str "the"
+        [20] Space
+        [21] Str "top-level"
+        [22] Space
+        [23] Str "README"
+        [24] Space
+        [25] Str "file."
+      }
+    }
+    [4] Para {
+      content: Inlines {
+        [1] Str "Thereâ\128\153s"
+        [2] Space
+        [3] Str "also"
+        [4] Space
+        [5] Str "a"
+        [6] Space
+        [7] Code {
+          attr: Attr {
+            attributes: AttributeList {}
+            classes: List {}
+            identifier: ""
+          }
+          text: "Makefile"
+        }
+        [8] Space
+        [9] Str "that"
+        [10] Space
+        [11] Str "runs"
+        [12] Space
+        [13] Str "lua"
+        [14] Space
+        [15] Str "and"
+        [16] Space
+        [17] Str "pandoc"
+        [18] Space
+        [19] Str "(as"
+        [20] Space
+        [21] Str "appropriate)"
+        [22] Space
+        [23] Str "and"
+        [24] Space
+        [25] Str "compares"
+        [26] Space
+        [27] Str "the"
+        [28] Space
+        [29] Str "output"
+        [30] Space
+        [31] Str "with"
+        [32] Space
+        [33] Str "the"
+        [34] Space
+        [35] Str "expected"
+        [36] Space
+        [37] Str "output."
+      }
+    }
+    [5] Header {
+      attr: Attr {
         attributes: AttributeList {
           a: "b"
         }
@@ -11,34 +138,34 @@
         identifier: "header"
       }
       content: Inlines {
-        [1] Str text: "Header"
+        [1] Str "Header"
       }
       level: 1
     }
-    [2] Para {
+    [6] Para {
       content: Inlines {
-        [1] Str text: "Paragraph"
-        [2] Space {}
-        [3] Str text: "with"
-        [4] Space {}
+        [1] Str "Paragraph"
+        [2] Space
+        [3] Str "with"
+        [4] Space
         [5] Emph {
           content: Inlines {
-            [1] Str text: "emphasized"
+            [1] Str "emphasized"
           }
         }
-        [6] Space {}
-        [7] Str text: "and"
-        [8] Space {}
+        [6] Space
+        [7] Str "and"
+        [8] Space
         [9] Strong {
           content: Inlines {
-            [1] Str text: "bold"
+            [1] Str "bold"
           }
         }
-        [10] Space {}
-        [11] Str text: "text."
+        [10] Space
+        [11] Str "text."
       }
     }
-    [3] CodeBlock {
+    [7] CodeBlock {
       attr: Attr {
         attributes: AttributeList {}
         classes: List {}
@@ -46,27 +173,27 @@
       }
       text: "Code"
     }
-    [4] BulletList {
+    [8] BulletList {
       content: List {
         [1] Blocks {
           [1] Plain {
             content: Inlines {
-              [1] Str text: "and"
-              [2] Space {}
-              [3] Str text: "a"
-              [4] Space {}
-              [5] Str text: "list."
+              [1] Str "and"
+              [2] Space
+              [3] Str "a"
+              [4] Space
+              [5] Str "list."
             }
           }
         }
       }
     }
-    [5] Para {
+    [9] Para {
       content: Inlines {
-        [1] Str text: "text"
+        [1] Str "text"
       }
     }
-    [6] Table {
+    [10] Table {
       attr: Attr {
         attributes: AttributeList {}
         classes: List {}
@@ -98,7 +225,7 @@
                   contents: Blocks {
                     [1] Plain {
                       content: Inlines {
-                        [1] Str text: "Tom"
+                        [1] Str "Tom"
                       }
                     }
                   }
@@ -115,11 +242,11 @@
                   contents: Blocks {
                     [1] Plain {
                       content: Inlines {
-                        [1] Str text: "Black"
-                        [2] Space {}
-                        [3] Str text: "and"
-                        [4] Space {}
-                        [5] Str text: "white"
+                        [1] Str "Black"
+                        [2] Space
+                        [3] Str "and"
+                        [4] Space
+                        [5] Str "white"
                       }
                     }
                   }
@@ -136,7 +263,7 @@
         long: Blocks {
           [1] Plain {
             content: Inlines {
-              [1] Str text: "Cats"
+              [1] Str "Cats"
             }
           }
         }
@@ -182,7 +309,7 @@
                 contents: Blocks {
                   [1] Plain {
                     content: Inlines {
-                      [1] Str text: "Name"
+                      [1] Str "Name"
                     }
                   }
                 }
@@ -199,7 +326,7 @@
                 contents: Blocks {
                   [1] Plain {
                     content: Inlines {
-                      [1] Str text: "Description"
+                      [1] Str "Description"
                     }
                   }
                 }
@@ -215,14 +342,14 @@
     foo: Inlines {
       [1] Emph {
         content: Inlines {
-          [1] Str text: "emph"
+          [1] Str "emph"
         }
       }
     }
     goo: Inlines {
       [1] Underline {
         content: Inlines {
-          [1] Str text: "underline"
+          [1] Str "underline"
         }
       }
     }
