@@ -4,7 +4,13 @@ This library provides pandoc-aware functions for dumping and logging lua objects
 
 # Getting started
 
-Put `logging.lua` somewhere where pandoc can access it, e.g., in the same directory as your lua filters. Then try this `simple.lua` filter:
+Put `logging.lua` somewhere where your pandoc lua filters can access it. For example, if your lua filters are in `$HOME/.local/share/pandoc/filters` you could put `logging.lua` in the same place and set the [`LUA_PATH`](https://www.lua.org/manual/5.4/manual.html#pdf-package.path) environment variable:
+
+```
+export LUA_PATH="$HOME/.local/share/pandoc/filters/?.lua;;"
+```
+
+Now try this `simple.lua` filter:
 
 ```lua
 local logging = require 'logging'
