@@ -89,8 +89,13 @@ local function dump_(prefix, value, maxlen, level, add)
     local typ = (({boolean=1, number=1, string=1, table=1, userdata=1})
                  [typename] and '' or typename)
 
+    -- light userdata is just a pointer (can't iterate over it)
+    -- XXX is there a better way of checking for light userdata?
+    if type(value) == 'userdata' and not pcall(pairs(value)) then
+        value = '<pointer>'
+
     -- modify the value heuristically
-    if ({table=1, userdata=1})[type(value)] then
+    elseif ({table=1, userdata=1})[type(value)] then
         local valueCopy, numKeys, lastKey = {}, 0, nil
         for key, val in pairs(value) do
             -- pandoc >= 2.15 includes 'tag', nil values and functions
@@ -125,6 +130,10 @@ local function dump_(prefix, value, maxlen, level, add)
         local quo = typename == 'string' and '"' or ''
         add(string.format('%s%s%s%s%s%s%s%s', indent, prefix, presep, typ,
                           typsep, quo, value, quo))
+    -- light userdata is just a pointer (can't iterate over it)
+    -- XXX is there a better way of checking for light userdataXS?
+    elseif valtyp == 'userdata' and not pcall(pairs(value)) then
+        add(string.format('%s%s%s%s <pointer>', indent, prefix, presep, typ))
     elseif ({table=1, userdata=1})[valtyp] then
         add(string.format('%s%s%s%s%s{', indent, prefix, presep, typ, typsep))
         -- Attr and Attr.attributes have both numeric and string keys, so
