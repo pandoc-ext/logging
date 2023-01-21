@@ -92,7 +92,7 @@ local function dump_(prefix, value, maxlen, level, add)
     -- light userdata is just a pointer (can't iterate over it)
     -- XXX is there a better way of checking for light userdata?
     if type(value) == 'userdata' and not pcall(pairs(value)) then
-        value = '<pointer>'
+        value = tostring(value):gsub('userdata:%s*', '')
 
     -- modify the value heuristically
     elseif ({table=1, userdata=1})[type(value)] then
@@ -131,9 +131,10 @@ local function dump_(prefix, value, maxlen, level, add)
         add(string.format('%s%s%s%s%s%s%s%s', indent, prefix, presep, typ,
                           typsep, quo, value, quo))
     -- light userdata is just a pointer (can't iterate over it)
-    -- XXX is there a better way of checking for light userdataXS?
+    -- XXX is there a better way of checking for light userdata?
     elseif valtyp == 'userdata' and not pcall(pairs(value)) then
-        add(string.format('%s%s%s%s <pointer>', indent, prefix, presep, typ))
+        add(string.format('%s%s%s%s %s', indent, prefix, presep, typ,
+                          tostring(value):gsub('userdata:%s*', '')))
     elseif ({table=1, userdata=1})[valtyp] then
         add(string.format('%s%s%s%s%s{', indent, prefix, presep, typ, typsep))
         -- Attr and Attr.attributes have both numeric and string keys, so
