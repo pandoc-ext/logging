@@ -7,9 +7,9 @@
     identifier: ""
   }
   col_span: 1
-  contents: Blocks {
+  contents: Blocks[1] {
     [1] Plain {
-      content: Inlines {
+      content: Inlines[1] {
         [1] Str "Name"
       }
     }
@@ -24,9 +24,9 @@
     identifier: ""
   }
   col_span: 1
-  contents: Blocks {
+  contents: Blocks[1] {
     [1] Plain {
-      content: Inlines {
+      content: Inlines[1] {
         [1] Str "Description"
       }
     }

@@ -2,8 +2,8 @@
 (E) this is output if loglevel >= -1
 (W) this is output if loglevel >= 0
 (#) args are automatically separated with spaces and a newline is added if necessary
-(#) args can be of any type, e.g. {maps: "like", this: "one"} or {[1] "lists", [2] "like", [3] "this", [4] "one"}
-(#) if an arg is too long it will be output on multiple lines {
+(#) args can be of any type, e.g. {maps: "like", this: "one"} or [4] {[1] "lists", [2] "like", [3] "this", [4] "one"}
+(#) if an arg is too long it will be output on multiple lines [5] {
   [1] "aardvark"
   [2] "bison"
   [3] "camel"

@@ -1,6 +1,6 @@
 [INFO] Running filter para.lua
 (I) para Para {
-  content: Inlines {
+  content: Inlines[29] {
     [1] Str "This"
     [2] Space
     [3] Str "directory"
@@ -33,7 +33,7 @@
   }
 }
 (I) para Para {
-  content: Inlines {
+  content: Inlines[25] {
     [1] Str "These"
     [2] Space
     [3] Str "files"
@@ -62,7 +62,7 @@
   }
 }
 (I) para Para {
-  content: Inlines {
+  content: Inlines[37] {
     [1] Str "There’s"
     [2] Space
     [3] Str "also"
@@ -110,13 +110,13 @@
   }
 }
 (I) para Para {
-  content: Inlines {
+  content: Inlines[11] {
     [1] Str "Paragraph"
     [2] Space
     [3] Str "with"
     [4] Space
     [5] Emph {
-      content: Inlines {
+      content: Inlines[1] {
         [1] Str "emphasized"
       }
     }
@@ -124,7 +124,7 @@
     [7] Str "and"
     [8] Space
     [9] Strong {
-      content: Inlines {
+      content: Inlines[1] {
         [1] Str "bold"
       }
     }
@@ -132,6 +132,6 @@
     [11] Str "text."
   }
 }
-(I) para Para {content: Inlines {[1] Str "text"}}
-(I) para Para {content: Inlines {[1] Str "smart-quote-’"}}
+(I) para Para {content: Inlines[1] {[1] Str "text"}}
+(I) para Para {content: Inlines[1] {[1] Str "smart-quote-’"}}
 [INFO] Completed filter para.lua in NN ms

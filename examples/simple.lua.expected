@@ -1,12 +1,12 @@
 (#) pandoc Pandoc {
-  blocks: Blocks {
+  blocks: Blocks[11] {
     [1] Header {
       attr: Attr {
         attributes: AttributeList {}
         classes: List {}
         identifier: "pandoc-lua-logging-examples"
       }
-      content: Inlines {
+      content: Inlines[7] {
         [1] Str "Pandoc"
         [2] Space
         [3] Str "lua"
@@ -18,7 +18,7 @@
       level: 1
     }
     [2] Para {
-      content: Inlines {
+      content: Inlines[29] {
         [1] Str "This"
         [2] Space
         [3] Str "directory"
@@ -51,7 +51,7 @@
       }
     }
     [3] Para {
-      content: Inlines {
+      content: Inlines[25] {
         [1] Str "These"
         [2] Space
         [3] Str "files"
@@ -80,7 +80,7 @@
       }
     }
     [4] Para {
-      content: Inlines {
+      content: Inlines[37] {
         [1] Str "There’s"
         [2] Space
         [3] Str "also"
@@ -132,24 +132,24 @@
         attributes: AttributeList {
           a: "b"
         }
-        classes: List {
+        classes: List[1] {
           [1] "new-page"
         }
         identifier: "header"
       }
-      content: Inlines {
+      content: Inlines[1] {
         [1] Str "Header"
       }
       level: 1
     }
     [6] Para {
-      content: Inlines {
+      content: Inlines[11] {
         [1] Str "Paragraph"
         [2] Space
         [3] Str "with"
         [4] Space
         [5] Emph {
-          content: Inlines {
+          content: Inlines[1] {
             [1] Str "emphasized"
           }
         }
@@ -157,7 +157,7 @@
         [7] Str "and"
         [8] Space
         [9] Strong {
-          content: Inlines {
+          content: Inlines[1] {
             [1] Str "bold"
           }
         }
@@ -174,10 +174,10 @@
       text: "Code"
     }
     [8] BulletList {
-      content: List {
-        [1] Blocks {
+      content: List[1] {
+        [1] Blocks[1] {
           [1] Plain {
-            content: Inlines {
+            content: Inlines[5] {
               [1] Str "and"
               [2] Space
               [3] Str "a"
@@ -189,7 +189,7 @@
       }
     }
     [9] Para {
-      content: Inlines {
+      content: Inlines[1] {
         [1] Str "text"
       }
     }
@@ -199,21 +199,21 @@
         classes: List {}
         identifier: ""
       }
-      bodies: List {
+      bodies: List[1] {
         [1] {
           attr: Attr {
             attributes: AttributeList {}
             classes: List {}
             identifier: ""
           }
-          body: List {
+          body: List[1] {
             [1] pandoc.Row {
               attr: Attr {
                 attributes: AttributeList {}
                 classes: List {}
                 identifier: ""
               }
-              cells: List {
+              cells: List[2] {
                 [1] pandoc.Cell {
                   alignment: "AlignDefault"
                   attr: Attr {
@@ -222,9 +222,9 @@
                     identifier: ""
                   }
                   col_span: 1
-                  contents: Blocks {
+                  contents: Blocks[1] {
                     [1] Plain {
-                      content: Inlines {
+                      content: Inlines[1] {
                         [1] Str "Tom"
                       }
                     }
@@ -239,9 +239,9 @@
                     identifier: ""
                   }
                   col_span: 1
-                  contents: Blocks {
+                  contents: Blocks[1] {
                     [1] Plain {
-                      content: Inlines {
+                      content: Inlines[5] {
                         [1] Str "Black"
                         [2] Space
                         [3] Str "and"
@@ -260,19 +260,19 @@
         }
       }
       caption: {
-        long: Blocks {
+        long: Blocks[1] {
           [1] Plain {
-            content: Inlines {
+            content: Inlines[1] {
               [1] Str "Cats"
             }
           }
         }
       }
-      colspecs: List {
-        [1] {
+      colspecs: List[2] {
+        [1] [1] {
           [1] "AlignDefault"
         }
-        [2] {
+        [2] [1] {
           [1] "AlignDefault"
         }
       }
@@ -290,14 +290,14 @@
           classes: List {}
           identifier: ""
         }
-        rows: List {
+        rows: List[1] {
           [1] pandoc.Row {
             attr: Attr {
               attributes: AttributeList {}
               classes: List {}
               identifier: ""
             }
-            cells: List {
+            cells: List[2] {
               [1] pandoc.Cell {
                 alignment: "AlignDefault"
                 attr: Attr {
@@ -306,9 +306,9 @@
                   identifier: ""
                 }
                 col_span: 1
-                contents: Blocks {
+                contents: Blocks[1] {
                   [1] Plain {
-                    content: Inlines {
+                    content: Inlines[1] {
                       [1] Str "Name"
                     }
                   }
@@ -323,9 +323,9 @@
                   identifier: ""
                 }
                 col_span: 1
-                contents: Blocks {
+                contents: Blocks[1] {
                   [1] Plain {
-                    content: Inlines {
+                    content: Inlines[1] {
                       [1] Str "Description"
                     }
                   }
@@ -338,22 +338,22 @@
       }
     }
     [11] Para {
-      content: Inlines {
+      content: Inlines[1] {
         [1] Str "smart-quote-’"
       }
     }
   }
   meta: Meta {
-    foo: Inlines {
+    foo: Inlines[1] {
       [1] Emph {
-        content: Inlines {
+        content: Inlines[1] {
           [1] Str "emph"
         }
       }
     }
-    goo: Inlines {
+    goo: Inlines[1] {
       [1] Underline {
-        content: Inlines {
+        content: Inlines[1] {
           [1] Str "underline"
         }
       }

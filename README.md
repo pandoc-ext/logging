@@ -30,9 +30,9 @@ text
 
 ```text
 (#) pandoc Pandoc {
-  blocks: Blocks {
+  blocks: Blocks[1] {
     [1] Para {
-      content: Inlines {
+      content: Inlines[1] {
         [1] Str "text"
       }
     }
@@ -66,14 +66,14 @@ end
 ```text
 % pandoc simple.md -L para.lua >/dev/null --verbose
 [INFO] Running filter para.lua
-(I) para Para {content: Inlines {[1] Str "text"}}
-[INFO] Completed filter para.lua in 8 ms
+(I) para Para {content: Inlines[1] {[1] Str "text"}}
+[INFO] Completed filter para.lua in 7 ms
 ```
 
 All lua objects can be passed to `logging.info()` etc., and they will be output in a form that should be useful for lua filter development and debugging. The output is intended to be a faithful representation of the [pandoc lua types](https://pandoc.org/lua-filters.html#module-pandoc) and should make it easy to "dig down". For example, you can see that:
 
 * `para` is a [Para](https://pandoc.org/lua-filters.html#type-para) instance
-* `para.content` is an [Inlines](https://pandoc.org/lua-filters.html#type-inlines) instance
+* `para.content` is an [Inlines](https://pandoc.org/lua-filters.html#type-inlines) instance with a single element
 * `para.content[1]` is a [Str](https://pandoc.org/lua-filters.html#type-str) instance
 * `para.content[1].text` is a string
 
@@ -95,14 +95,14 @@ end
 ```text
 % pandoc simple.md -L para2.lua >/dev/null --verbose
 [INFO] Running filter para2.lua
-(I) para Para {content: Inlines {[1] Str "text"}}
-(I) para.content Inlines {[1] Str "text"}
+(I) para Para {content: Inlines[1] {[1] Str "text"}}
+(I) para.content Inlines[1] {[1] Str "text"}
 (I) para.content[1] Str "text"
 (I) para.content[1].text text
-[INFO] Completed filter para2.lua in 8 ms
+[INFO] Completed filter para2.lua in 7 ms
 ```
 
-Why is the last `text` not quoted?
+The last `text` is not quoted, because lua strings are always output literally.
 
 # Module contents
 
