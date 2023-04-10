@@ -1,6 +1,6 @@
 [INFO] Running filter para2.lua
 (I) para Para {
-  content: Inlines {
+  content: Inlines[29] {
     [1] Str "This"
     [2] Space
     [3] Str "directory"
@@ -32,7 +32,7 @@
     [29] Str "files."
   }
 }
-(I) para.content Inlines {
+(I) para.content Inlines[29] {
   [1] Str "This"
   [2] Space
   [3] Str "directory"
@@ -66,7 +66,7 @@
 (I) para.content[1] Str "This"
 (I) para.content[1].text This
 (I) para Para {
-  content: Inlines {
+  content: Inlines[25] {
     [1] Str "These"
     [2] Space
     [3] Str "files"
@@ -94,7 +94,7 @@
     [25] Str "file."
   }
 }
-(I) para.content Inlines {
+(I) para.content Inlines[25] {
   [1] Str "These"
   [2] Space
   [3] Str "files"
@@ -124,7 +124,7 @@
 (I) para.content[1] Str "These"
 (I) para.content[1].text These
 (I) para Para {
-  content: Inlines {
+  content: Inlines[37] {
     [1] Str "There’s"
     [2] Space
     [3] Str "also"
@@ -171,7 +171,7 @@
     [37] Str "output."
   }
 }
-(I) para.content Inlines {
+(I) para.content Inlines[37] {
   [1] Str "There’s"
   [2] Space
   [3] Str "also"
@@ -220,13 +220,13 @@
 (I) para.content[1] Str "There’s"
 (I) para.content[1].text There’s
 (I) para Para {
-  content: Inlines {
+  content: Inlines[11] {
     [1] Str "Paragraph"
     [2] Space
     [3] Str "with"
     [4] Space
     [5] Emph {
-      content: Inlines {
+      content: Inlines[1] {
         [1] Str "emphasized"
       }
     }
@@ -234,7 +234,7 @@
     [7] Str "and"
     [8] Space
     [9] Strong {
-      content: Inlines {
+      content: Inlines[1] {
         [1] Str "bold"
       }
     }
@@ -242,13 +242,13 @@
     [11] Str "text."
   }
 }
-(I) para.content Inlines {
+(I) para.content Inlines[11] {
   [1] Str "Paragraph"
   [2] Space
   [3] Str "with"
   [4] Space
   [5] Emph {
-    content: Inlines {
+    content: Inlines[1] {
       [1] Str "emphasized"
     }
   }
@@ -256,7 +256,7 @@
   [7] Str "and"
   [8] Space
   [9] Strong {
-    content: Inlines {
+    content: Inlines[1] {
       [1] Str "bold"
     }
   }
@@ -265,12 +265,12 @@
 }
 (I) para.content[1] Str "Paragraph"
 (I) para.content[1].text Paragraph
-(I) para Para {content: Inlines {[1] Str "text"}}
-(I) para.content Inlines {[1] Str "text"}
+(I) para Para {content: Inlines[1] {[1] Str "text"}}
+(I) para.content Inlines[1] {[1] Str "text"}
 (I) para.content[1] Str "text"
 (I) para.content[1].text text
-(I) para Para {content: Inlines {[1] Str "smart-quote-’"}}
-(I) para.content Inlines {[1] Str "smart-quote-’"}
+(I) para Para {content: Inlines[1] {[1] Str "smart-quote-’"}}
+(I) para.content Inlines[1] {[1] Str "smart-quote-’"}
 (I) para.content[1] Str "smart-quote-’"
 (I) para.content[1].text smart-quote-’
 [INFO] Completed filter para2.lua in NN ms
