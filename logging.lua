@@ -102,7 +102,7 @@ local function dump_(prefix, value, maxlen, level, add)
         local valueCopy, numKeys, lastKey = {}, 0, nil
         for key, val in pairs(value) do
             -- pandoc >= 2.15 includes 'tag', nil values and functions
-            if key ~= 'tag' and val and type(val) ~= 'function' then
+            if key ~= 'tag' and val ~= nil and type(val) ~= 'function' then
                 valueCopy[key] = val
                 numKeys = numKeys + 1
                 lastKey = key
@@ -188,11 +188,29 @@ logging.dump = function(value, maxlen)
     return text
 end
 
+-- log prefix
+logging.logprefix = ''
+
+-- set log prefix and return the previous prefix
+logging.setlogprefix = function(logprefix)
+    -- if not supplied, use script file's filename part
+    if not logprefix then
+        -- XXX do we need the backslash for Windows? maybe not
+        logprefix = PANDOC_SCRIPT_FILE and
+            PANDOC_SCRIPT_FILE:gsub('^.-([^/\\]+)%.lua$', '%1') or ''
+    end
+    local oldprefix = logging.logprefix
+    logging.logprefix = logprefix
+    return oldprefix
+end
+
 logging.output = function(...)
     local need_newline = false
+    local maybe_space = #logging.logprefix > 0 and ' ' or ''
+    io.stderr:write(logging.logprefix, maybe_space)
     for i, item in ipairs({...}) do
         -- XXX space logic could be cleverer, e.g. no space after newline
-        local maybe_space = i > 1 and ' ' or ''
+        maybe_space = i > 1 and ' ' or ''
         local text = ({table=1, userdata=1})[type(item)] and
             logging.dump(item) or tostring(item)
         io.stderr:write(maybe_space, text)
@@ -203,7 +221,7 @@ logging.output = function(...)
     end
 end
 
--- basic logging support (-1=errors, 0=warnings, 1=info, 2=debug, 3=debug2)
+-- log level (-1=errors, 0=warnings, 1=info, 2=debug, 3=debug2)
 -- XXX should support string levels?
 logging.loglevel = 0
 
