@@ -5,6 +5,9 @@
     Usage:       See README.md for details
 ]]
 
+-- Inform luacheck about some globals, provided by 'pandoc'.
+-- luacheck: globals pandoc PANDOC_SCRIPT_FILE PANDOC_STATE
+
 -- if running standalone, create a 'pandoc' global
 if not pandoc then
     _G.pandoc = {utils = {}}
@@ -19,7 +22,7 @@ end
 if not pandoc.utils.type then
     pandoc.utils.type = function(value)
         local typ = type(value)
-        if not ({table=1, userdata=1})[typ] then
+        if not ({table=1, userdata=1})[typ] then -- luacheck: ignore
             -- unchanged
         elseif value.__name then
             typ = value.__name
@@ -213,7 +216,7 @@ end
 
 -- verbosity default is WARNING; --quiet -> ERROR and --verbose -> INFO
 -- --trace sets TRACE or DEBUG (depending on --verbose)
-if type(PANDOC_STATE) == 'nil' then
+if type(PANDOC_STATE) == 'nil' then -- luacheck: ignore
     -- use the default level
 elseif PANDOC_STATE.trace then
     logging.loglevel = PANDOC_STATE.verbosity == 'INFO' and 3 or 2
